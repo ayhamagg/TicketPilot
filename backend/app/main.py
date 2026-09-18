@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
+from app.api.routes import tickets
 
 app = FastAPI(
     title=settings.APP_NAME,
@@ -9,7 +10,6 @@ app = FastAPI(
 )
 
 # CORS configuration
-# Allows the frontend to communicate with the backend
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000"],
@@ -17,6 +17,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Register routes
+app.include_router(tickets.router, prefix="/api/tickets", tags=["tickets"])
 
 
 @app.get("/health")
