@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
-from app.api.routes import tickets, statistics
+from app.api.routes import tickets, statistics, analysis
 
 app = FastAPI(
     title=settings.APP_NAME,
@@ -19,6 +19,7 @@ app.add_middleware(
 
 # Register routes
 app.include_router(tickets.router, prefix="/api/tickets", tags=["tickets"])
+app.include_router(analysis.router, prefix="/api/tickets", tags=["analysis"])
 app.include_router(statistics.router, prefix="/api/statistics", tags=["statistics"])
 
 
