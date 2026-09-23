@@ -1,3 +1,4 @@
+# Handles all GitHub REST API communication
 import httpx
 import logging
 from app.core.config import settings
