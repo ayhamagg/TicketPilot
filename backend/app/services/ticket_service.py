@@ -1,3 +1,4 @@
+# Core business logic for ticket management
 from sqlalchemy.orm import Session
 from sqlalchemy import or_, func
 from app.models.ticket import Ticket, StatusEnum, PriorityEnum, CategoryEnum, ChannelEnum
