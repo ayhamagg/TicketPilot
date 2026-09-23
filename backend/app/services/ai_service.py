@@ -1,3 +1,4 @@
+# Handles all Anthropic Claude API communication
 import anthropic
 import json
 import logging
